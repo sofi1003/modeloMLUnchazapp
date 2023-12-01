@@ -6,7 +6,7 @@ from sklearn.metrics.pairwise import linear_kernel
 
 # Cargar los datos desde el archivo CSV
 
-data = pd.read_csv(r'C:\Users\sofia\OneDrive\Documentos\ejemploML\datos.csv')
+data = pd.read_csv('datos.csv')
 
 
 train_data, test_data = train_test_split(data, test_size=0.2, random_state=0)
@@ -61,7 +61,7 @@ def actualizar_datos_csv():
 
     siONo = False
 
-    cred = credentials.Certificate(r"C:\Users\sofia\OneDrive\Documentos\ejemploML\tuto.json")
+    cred = credentials.Certificate("tuto.json")
     firebase_admin.initialize_app(cred, {
         'databaseURL': 'https://unchazapp-6ecc0-default-rtdb.firebaseio.com/'
     })
@@ -79,7 +79,7 @@ def actualizar_datos_csv():
         data.append([keyUser, categoria, keyNegocio, calificacion])
 
     try:
-        with open(r'C:\Users\sofia\OneDrive\Documentos\ejemploML\datos.csv', mode='w', newline='') as file:
+        with open('datos.csv', mode='w', newline='') as file:
             writer = csv.writer(file)
             writer.writerows(data)
             siONo = True

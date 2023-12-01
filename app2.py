@@ -8,13 +8,13 @@ app = Flask(__name__)
 def recomendar():
     if request.method == 'POST':
         try:
-            input_data = request.get_json()  # Obtén los datos enviados desde Android Studio
+            input_data = request.get_json()  # Se Obtienen los datos enviados desde Android Studio
             print(input_data)
             if 'cliente_id' in input_data:
                 cliente_id = input_data['cliente_id']
-                recomendaciones = get_recommendations(cliente_id)  # Llama a tu función de recomendación
+                recomendaciones = get_recommendations(cliente_id)  # Llama a la función de recomendación
 
-                # Registra el ID del cliente y las recomendaciones en la consola
+                
                 print(f"ID del cliente: {cliente_id}, Recomendaciones: {recomendaciones}")
 
                 return jsonify({'recomendaciones': recomendaciones})
